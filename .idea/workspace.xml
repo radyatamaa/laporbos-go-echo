@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="caee27d6-2ff5-4a5c-9251-93104e9d73bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cashflow/usecase/cashflow_usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/cashflow/usecase/cashflow_usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/usecase/sales_order_usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/usecase/sales_order_usecase.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +39,11 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/master_customer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\radya\project\laporbos-go-echo" />
       <recent name="E:\radya\project\laporbos-go-echo\master_customer" />
       <recent name="E:\radya\project\pribadi\laporbos-go-echo" />
     </key>
@@ -88,38 +90,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="670" height="466" key="DebuggerActiveHint/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608211547386" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1608225696762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696762" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1608225696762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1608213440537">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696762" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1608225696762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440537" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696762" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1608225696762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696762" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1608225696621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696621" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1608225696620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696620" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1608225696620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1608213440538">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696620" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1608225696621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608213440538" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1608225696621" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1608214142882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

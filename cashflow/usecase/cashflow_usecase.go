@@ -92,7 +92,7 @@ func (f Cashflow) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("Template SO")
+	rows, err := xlsx.Rows("FBL3N Jan 2020-TMP")
 	if err != nil {
 		log.Fatal(err)
 	}
