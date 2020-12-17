@@ -31,6 +31,11 @@ import (
 	_salesOrderHttpDeliver "github.com/sales_order/delivery/http"
 	_salesOrderRepo "github.com/sales_order/repository"
 	_salesOrderUcase "github.com/sales_order/usecase"
+
+	_cashflowHttpDeliver "github.com/cashflow/delivery/http"
+	_cashflowRepo "github.com/cashflow/repository"
+	_cashflowUcase "github.com/cashflow/usecase"
+
 )
 
 func main() {
@@ -94,6 +99,7 @@ func main() {
 	masterCustomerRepo := _masterCustomerRepo.NewMasterCustomerRepository(dbConn)
 	masterVendorRepo := _masterVendorRepo.NewMasterVendorRepository(dbConn)
 	salesOrderRepo := _salesOrderRepo.NewSalesOrderRepository(dbConn)
+	cashflowRepo := _cashflowRepo.NewCashflowRepository(dbConn)
 
 	timeoutContext := 30 * time.Second
 	au := _articleUcase.NewArticleUsecase(ar, authorRepo, timeoutContext)
@@ -101,7 +107,9 @@ func main() {
 	masterCustomerUsecase := _masterCustomerUcase.NewMasterCustomer(masterCustomerRepo, timeoutContext)
 	masterVendorUsecase := _masterVendorUcase.NewMasterVendor(masterVendorRepo, timeoutContext)
 	salesOrderUsecase :=  _salesOrderUcase.NewSalesOrder(salesOrderRepo, timeoutContext)
+	cashflowUsecase := _cashflowUcase.NewCashflow(cashflowRepo,timeoutContext)
 
+	_cashflowHttpDeliver.NewCashflowHandler(e,cashflowUsecase)
 	_salesOrderHttpDeliver.NewSalesOrderHandler(e,salesOrderUsecase)
 	_masterVendorHttpDeliver.NewMasterVendorHandler(e,masterVendorUsecase)
 	_masterCustomerHttpDeliver.NewMasterVendorHandler(e,masterCustomerUsecase)

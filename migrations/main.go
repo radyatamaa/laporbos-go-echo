@@ -80,4 +80,13 @@ func main() {
 
 	db.Create(&migration7)
 
+	Cashflow := model.Cashflow{}
+	db.AutoMigrate(&Cashflow)
+	migration8 := model.MigrationHistory{
+		DescMigration: "Add table Cashflow",
+		Date:          time.Now(),
+	}
+
+	db.Create(&migration8)
+
 }
