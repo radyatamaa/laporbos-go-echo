@@ -45,12 +45,24 @@ func (f SalesOrderRepository) fetch(ctx context.Context, query string, args ...i
 			&t.DeletedDate,
 			&t.IsDeleted,
 			&t.IsActive,
-			&t.SPRAS,
-			&t.KTOPL,
-			&t.COA,
-			&t.TXT20,
-			&t.TXT50,
-			&t.MCOD1,
+			&t.DocNumber,
+			&t.DocDate ,
+			&t.SaTy ,
+			&t.Item,
+			&t.Material,
+			&t.Description,
+			&t.OrderQty,
+			&t.NetPrice ,
+			&t.NetValue ,
+			&t.Curr ,
+			&t.UoM,
+			&t.DlvDate,
+			&t.Plant,
+			&t.SalesOffice ,
+			&t.SalesGroup,
+			&t.SalesOrg,
+			&t.DistributionChanel ,
+			&t.StorageLocation ,
 		)
 
 		if err != nil {
@@ -122,14 +134,32 @@ func (m *SalesOrderRepository) GetCount(ctx context.Context) (int, error) {
 
 func (m *SalesOrderRepository) Insert(ctx context.Context, a *models.SalesOrder) (*int, error) {
 	query := `INSERT sales_orders SET created_by=? , created_date=? , modified_by=?, modified_date=? , 	
-				deleted_by=? , deleted_date=? , is_deleted=? , is_active=? , spras=?, ktopl=?, coa=?,
-				txt20=?, txt50=?, mcod1=?`
+				deleted_by=? , deleted_date=? , is_deleted=? , is_active=? , doc_number=?, doc_date=?, sa_ty=?,
+				item=?, material=?, description=?, order_qty=?, net_price=?, net_value=?,curr=?, uo_m=?, dlv_date=?, plant=?, 
+				sales_office=?, sales_group=?,sales_org=?, distribution_chanel=?, storage_location=?`
 	stmt, err := m.Conn.PrepareContext(ctx, query)
 	if err != nil {
 		return nil, err
 	}
-	res, err := stmt.ExecContext(ctx, a.CreatedBy, a.CreatedDate, nil, nil, nil, nil, 0, 1, a.SPRAS, a.KTOPL,
-		a.COA, a.TXT20, a.TXT50, a.MCOD1)
+	res, err := stmt.ExecContext(ctx, a.CreatedBy, a.CreatedDate, nil, nil, nil, nil, 0, 1, a.DocNumber,
+		a.DocDate ,
+		a.SaTy ,
+		a.Item,
+		a.Material,
+		a.Description,
+		a.OrderQty,
+		a.NetPrice ,
+		a.NetValue ,
+		a.Curr ,
+		a.UoM,
+		a.DlvDate,
+		a.Plant,
+		a.SalesOffice ,
+		a.SalesGroup,
+		a.SalesOrg,
+		a.DistributionChanel ,
+		a.StorageLocation ,
+	)
 	if err != nil {
 		return nil, err
 	}
