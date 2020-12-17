@@ -27,6 +27,10 @@ import (
 	_masterCustomerHttpDeliver "github.com/master_customer/delivery/http"
 	_masterCustomerRepo "github.com/master_customer/repository"
 	_masterCustomerUcase "github.com/master_customer/usecase"
+
+	_salesOrderHttpDeliver "github.com/sales_order/delivery/http"
+	_salesOrderRepo "github.com/sales_order/repository"
+	_salesOrderUcase "github.com/sales_order/usecase"
 )
 
 func main() {
@@ -89,14 +93,16 @@ func main() {
 	masterCOARepo := _masterCOARepo.NewMasterCOARepository(dbConn)
 	masterCustomerRepo := _masterCustomerRepo.NewMasterCustomerRepository(dbConn)
 	masterVendorRepo := _masterVendorRepo.NewMasterVendorRepository(dbConn)
-
+	salesOrderRepo := _salesOrderRepo.NewSalesOrderRepository(dbConn)
 
 	timeoutContext := 30 * time.Second
 	au := _articleUcase.NewArticleUsecase(ar, authorRepo, timeoutContext)
 	masterCOAUsecase := _masterCOAUcase.NewMasterCOA(masterCOARepo, timeoutContext)
 	masterCustomerUsecase := _masterCustomerUcase.NewMasterCustomer(masterCustomerRepo, timeoutContext)
 	masterVendorUsecase := _masterVendorUcase.NewMasterVendor(masterVendorRepo, timeoutContext)
+	salesOrderUsecase :=  _salesOrderUcase.NewSalesOrder(salesOrderRepo, timeoutContext)
 
+	_salesOrderHttpDeliver.NewSalesOrderHandler(e,salesOrderUsecase)
 	_masterVendorHttpDeliver.NewMasterVendorHandler(e,masterVendorUsecase)
 	_masterCustomerHttpDeliver.NewMasterVendorHandler(e,masterCustomerUsecase)
 	_masterCOAHttpDeliver.NewMasterCOAHandler(e,masterCOAUsecase)
