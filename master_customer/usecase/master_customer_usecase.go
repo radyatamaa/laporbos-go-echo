@@ -104,10 +104,10 @@ func (f MasterCustomer) Import(ctx context.Context, fileLocation string) error {
 				DeletedDate:  nil,
 				IsDeleted:    0,
 				IsActive:     0,
-				MANDT:         row[1],
-				KodeCustomers:  row[2],
-				LAND1:          row[3],
-				NAME1:         row[4],
+				MANDT:         row[0],
+				KodeCustomers:  row[1],
+				LAND1:          row[2],
+				NAME1:         row[3],
 			}
 			masterCOA = append(masterCOA, &master)
 			//fmt.Printf("%s\t%s\n", row[1], row[3]) // Print values in columns B and D

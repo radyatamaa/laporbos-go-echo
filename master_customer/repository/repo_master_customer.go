@@ -120,7 +120,7 @@ func (m *MasterCustomerRepository) GetCount(ctx context.Context) (int, error) {
 
 func (m *MasterCustomerRepository) Insert(ctx context.Context, a *models.MasterCustomer) (*int, error) {
 	query := `INSERT master_customers SET created_by=? , created_date=? , modified_by=?, modified_date=? , 	
-				deleted_by=? , deleted_date=? , is_deleted=? , is_active=? , mandt=?, kode_customers=?, land1=?
+				deleted_by=? , deleted_date=? , is_deleted=? , is_active=? , mandt=?, kode_customers=?, land1=?,
 				name1=?`
 	stmt, err := m.Conn.PrepareContext(ctx, query)
 	if err != nil {
