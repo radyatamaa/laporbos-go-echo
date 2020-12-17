@@ -19,6 +19,14 @@ import (
 	_masterCOAHttpDeliver "github.com/master_coa/delivery/http"
 	_masterCOARepo "github.com/master_coa/repository"
 	_masterCOAUcase "github.com/master_coa/usecase"
+
+	_masterVendorHttpDeliver "github.com/master_vendor/delivery/http"
+	_masterVendorRepo "github.com/master_vendor/repository"
+	_masterVendorUcase "github.com/master_vendor/usecase"
+
+	_masterCustomerHttpDeliver "github.com/master_customer/delivery/http"
+	_masterCustomerRepo "github.com/master_customer/repository"
+	_masterCustomerUcase "github.com/master_customer/usecase"
 )
 
 func main() {
@@ -79,13 +87,18 @@ func main() {
 	authorRepo := _authorRepo.NewMysqlAuthorRepository(dbConn)
 	ar := _articleRepo.NewMysqlArticleRepository(dbConn)
 	masterCOARepo := _masterCOARepo.NewMasterCOARepository(dbConn)
+	masterCustomerRepo := _masterCustomerRepo.NewMasterCustomerRepository(dbConn)
+	masterVendorRepo := _masterVendorRepo.NewMasterVendorRepository(dbConn)
 
 
 	timeoutContext := 30 * time.Second
 	au := _articleUcase.NewArticleUsecase(ar, authorRepo, timeoutContext)
 	masterCOAUsecase := _masterCOAUcase.NewMasterCOA(masterCOARepo, timeoutContext)
+	masterCustomerUsecase := _masterCustomerUcase.NewMasterCustomer(masterCustomerRepo, timeoutContext)
+	masterVendorUsecase := _masterVendorUcase.NewMasterVendor(masterVendorRepo, timeoutContext)
 
-
+	_masterVendorHttpDeliver.NewMasterVendorHandler(e,masterVendorUsecase)
+	_masterCustomerHttpDeliver.NewMasterVendorHandler(e,masterCustomerUsecase)
 	_masterCOAHttpDeliver.NewMasterCOAHandler(e,masterCOAUsecase)
 	_articleHttpDeliver.NewArticleHandler(e, au)
 	log.Fatal(e.Start(":9090"))

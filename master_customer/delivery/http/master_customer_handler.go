@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/master_vendor"
+	"github.com/master_customer"
 
 	"github.com/labstack/echo"
 	"github.com/models"
@@ -20,15 +20,15 @@ type ResponseError struct {
 }
 
 type MasterVendorHandler struct {
-	MasterVendorUsecase master_vendor.Usecase
+	MasterVendorUsecase master_customer.Usecase
 }
 
-func NewMasterVendorHandler(e *echo.Echo, us master_vendor.Usecase) {
+func NewMasterVendorHandler(e *echo.Echo, us master_customer.Usecase) {
 	handler := &MasterVendorHandler{
 		MasterVendorUsecase: us,
 	}
-	e.POST("master/import/master-vendor", handler.ImportMasterVendor)
-	e.GET("master/master-vendor", handler.GetAllMasterVendor)
+	e.POST("master/import/master-customer", handler.ImportMasterVendor)
+	e.GET("master/master-customer", handler.GetAllMasterVendor)
 }
 
 // GetByID will get article by given id
