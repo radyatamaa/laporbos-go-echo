@@ -90,15 +90,14 @@ func (f MasterCOA) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("SKAT-Master Account")
+	rows := xlsx.GetRows("SKAT-Master Account")
 	if err != nil {
 		log.Fatal(err)
 	}
 	masterCOA := make([]*models.MasterCOA,0)
 	index := 0
 
-	for rows.Next() {
-		row := rows.Columns()
+	for _,row := range rows{
 		if index != 0 && len(row) > 0{
 			master := models.MasterCOA{
 				Id:           0,

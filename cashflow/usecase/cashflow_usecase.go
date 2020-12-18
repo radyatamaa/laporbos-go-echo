@@ -92,15 +92,14 @@ func (f Cashflow) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("FBL3N Jan 2020-TMP")
+	rows := xlsx.GetRows("FBL3N Jan 2020-TMP")
 	if err != nil {
 		log.Fatal(err)
 	}
 	Cashflow := make([]*models.Cashflow, 0)
 	index := 0
 
-	for rows.Next() {
-		row := rows.Columns()
+	for _,row := range rows{
 		if index != 0 && len(row) > 0 {
 			amount, _ := strconv.ParseFloat(row[5], 64)
 			master := models.Cashflow{

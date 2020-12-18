@@ -3,7 +3,6 @@ package usecase
 import (
 	"context"
 	"fmt"
-	"log"
 	"math"
 	"strconv"
 	"time"
@@ -99,20 +98,18 @@ func (f SalesOrder) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("Template SO")
-	if err != nil {
-		log.Fatal(err)
-	}
+	rows := xlsx.GetRows("Template SO")
+
 	SalesOrder := make([]*models.SalesOrder, 0)
 	index := 0
 
-	for rows.Next() {
-		row := rows.Columns()
+	for _,row := range rows{
 		if index != 0 && len(row) > 0 {
 			item ,_:=strconv.Atoi(row[3])
 			orderqty,_:=strconv.Atoi(row[6])
 			netprice,_:= strconv.ParseFloat(row[7],64)
 			netvalue,_:=strconv.ParseFloat(row[8],64)
+
 			master := models.SalesOrder{
 				Id:           0,
 				CreatedBy:    "admin",

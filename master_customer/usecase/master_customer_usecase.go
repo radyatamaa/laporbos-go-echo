@@ -84,15 +84,14 @@ func (f MasterCustomer) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("KNA1-Table Customer")
+	rows := xlsx.GetRows("KNA1-Table Customer")
 	if err != nil {
 		log.Fatal(err)
 	}
 	masterCOA := make([]*models.MasterCustomer, 0)
 	index := 0
 
-	for rows.Next() {
-		row := rows.Columns()
+	for _,row := range rows{
 		if index != 0 && len(row) > 0 {
 			master := models.MasterCustomer{
 				Id:           0,

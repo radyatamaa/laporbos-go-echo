@@ -82,15 +82,14 @@ func (f MasterVendor) Import(ctx context.Context, fileLocation string) error {
 		return err
 	}
 
-	rows, err := xlsx.Rows("LFA1-Master vendor")
+	rows := xlsx.GetRows("LFA1-Master vendor")
 	if err != nil {
 		log.Fatal(err)
 	}
 	masterCOA := make([]*models.MasterVendor, 0)
 	index := 0
 
-	for rows.Next() {
-		row := rows.Columns()
+	for _,row := range rows{
 		if index != 0 && len(row) > 0 {
 			master := models.MasterVendor{
 				Id:           0,
