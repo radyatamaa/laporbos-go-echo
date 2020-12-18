@@ -36,6 +36,14 @@ import (
 	_cashflowRepo "github.com/cashflow/repository"
 	_cashflowUcase "github.com/cashflow/usecase"
 
+	_apHttpDeliver "github.com/ap/delivery/http"
+	_apRepo "github.com/ap/repository"
+	_apUcase "github.com/ap/usecase"
+
+	_arHttpDeliver "github.com/ar/delivery/http"
+	_arRepo "github.com/ar/repository"
+	_arUcase "github.com/ar/usecase"
+
 )
 
 func main() {
@@ -100,15 +108,21 @@ func main() {
 	masterVendorRepo := _masterVendorRepo.NewMasterVendorRepository(dbConn)
 	salesOrderRepo := _salesOrderRepo.NewSalesOrderRepository(dbConn)
 	cashflowRepo := _cashflowRepo.NewCashflowRepository(dbConn)
+	arRepo := _arRepo.NewArRepository(dbConn)
+	apRepo := _apRepo.NewApRepository(dbConn)
 
-	timeoutContext := 30 * time.Second
+	timeoutContext := 120 * time.Second
 	au := _articleUcase.NewArticleUsecase(ar, authorRepo, timeoutContext)
 	masterCOAUsecase := _masterCOAUcase.NewMasterCOA(masterCOARepo, timeoutContext)
 	masterCustomerUsecase := _masterCustomerUcase.NewMasterCustomer(masterCustomerRepo, timeoutContext)
 	masterVendorUsecase := _masterVendorUcase.NewMasterVendor(masterVendorRepo, timeoutContext)
 	salesOrderUsecase :=  _salesOrderUcase.NewSalesOrder(salesOrderRepo, timeoutContext)
 	cashflowUsecase := _cashflowUcase.NewCashflow(cashflowRepo,timeoutContext)
+	arUsecase := _arUcase.NewAr(arRepo,timeoutContext)
+	apUsecase := _apUcase.NewAp(apRepo,timeoutContext)
 
+	_arHttpDeliver.NewArHandler(e,arUsecase)
+	_apHttpDeliver.NewApHandler(e,apUsecase)
 	_cashflowHttpDeliver.NewCashflowHandler(e,cashflowUsecase)
 	_salesOrderHttpDeliver.NewSalesOrderHandler(e,salesOrderUsecase)
 	_masterVendorHttpDeliver.NewMasterVendorHandler(e,masterVendorUsecase)
