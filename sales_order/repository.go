@@ -8,5 +8,6 @@ import (
 type Repository interface {
 	Fetch(ctx context.Context, limit, offset int) ([]*models.SalesOrder, error)
 	GetCount(ctx context.Context) (int, error)
+	GetSUMByMaterial(ctx context.Context) ([]*models.SalesOrderSumByMaterial, error)
 	Insert(ctx context.Context, a *models.SalesOrder) (*int, error)
 }

@@ -7,5 +7,6 @@ import (
 
 type Usecase interface {
 	GetAll(ctx context.Context, page, limit, offset int) (*models.SalesOrderDtoWithPagination, error)
+	GetSumByMaterial(ctx context.Context) ([]*models.SalesOrderSumByMaterial, error)
 	Import(ctx context.Context, fileLocation string) error
 }

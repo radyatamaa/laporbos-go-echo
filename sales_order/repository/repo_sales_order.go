@@ -14,6 +14,42 @@ type SalesOrderRepository struct {
 	Conn *sql.DB
 }
 
+func (m SalesOrderRepository) GetSUMByMaterial(ctx context.Context) ([]*models.SalesOrderSumByMaterial, error) {
+	query := `SELECT material, description, sum(order_qty) as order_qty_sum, sum(net_value) as order_qty_sum FROM laporbos_db.sales_orders
+				group by material`
+
+	rows, err := m.Conn.QueryContext(ctx, query)
+	if err != nil {
+		logrus.Error(err)
+		return nil, err
+	}
+	defer func() {
+		err := rows.Close()
+		if err != nil {
+			logrus.Error(err)
+		}
+	}()
+
+	result := make([]*models.SalesOrderSumByMaterial, 0)
+	for rows.Next() {
+		t := new(models.SalesOrderSumByMaterial)
+		err = rows.Scan(
+			&t.Material,
+			&t.Description,
+			&t.OrderQtySum,
+			&t.NetValueSum ,
+
+		)
+
+		if err != nil {
+			logrus.Error(err)
+			return nil, err
+		}
+		result = append(result, t)
+	}
+	return result,nil
+}
+
 func NewSalesOrderRepository(Conn *sql.DB) sales_order.Repository {
 	return &SalesOrderRepository{Conn: Conn}
 }

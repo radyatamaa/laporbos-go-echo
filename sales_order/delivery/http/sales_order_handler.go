@@ -29,6 +29,7 @@ func NewSalesOrderHandler(e *echo.Echo, us sales_order.Usecase) {
 	}
 	e.POST("master/import/sales-order", handler.ImportSalesOrder)
 	e.GET("master/sales-order", handler.GetAllSalesOrder)
+	e.GET("master/sales-order-material-sum", handler.GetAllSalesOrderSumByMaterial)
 }
 
 // GetByID will get article by given id
@@ -54,6 +55,22 @@ func (a *SalesOrderHandler) GetAllSalesOrder(c echo.Context) error {
 	return c.JSON(http.StatusOK, art)
 
 }
+
+// GetByID will get article by given id
+func (a *SalesOrderHandler) GetAllSalesOrderSumByMaterial(c echo.Context) error {
+
+	ctx := c.Request().Context()
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	art, err := a.SalesOrderUsecase.GetSumByMaterial(ctx)
+	if err != nil {
+		return c.JSON(getStatusCode(err), ResponseError{Message: err.Error()})
+	}
+	return c.JSON(http.StatusOK, art)
+
+}
+
 
 // Store will store the user by given request body
 func (a *SalesOrderHandler) ImportSalesOrder(c echo.Context) error {

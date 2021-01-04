@@ -31,6 +31,12 @@ type SalesOrder struct {
 	DistributionChanel string `json:"distribution_chanel"`
 	StorageLocation string `json:"storage_location"`
 }
+type SalesOrderSumByMaterial struct {
+	Material string `json:"material"`
+	Description string `json:"description"`
+	OrderQtySum int `json:"order_qty_sum"`
+	NetValueSum float64 `json:"net_value_sum"`
+}
 
 type SalesOrderDto struct {
 	Id           int    `json:"id"`

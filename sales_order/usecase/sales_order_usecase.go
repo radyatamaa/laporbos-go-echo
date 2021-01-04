@@ -17,13 +17,25 @@ type SalesOrder struct {
 	contextTimeout time.Duration
 }
 
+
+
 func NewSalesOrder(f sales_order.Repository, timeout time.Duration) sales_order.Usecase {
 	return &SalesOrder{
 		SalesOrderRepo: f,
 		contextTimeout: timeout,
 	}
 }
+func (f SalesOrder) GetSumByMaterial(ctx context.Context) ([]*models.SalesOrderSumByMaterial, error) {
+	ctx, cancel := context.WithTimeout(ctx, f.contextTimeout)
+	defer cancel()
 
+	getFacilities, err := f.SalesOrderRepo.GetSUMByMaterial(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	return getFacilities,nil
+}
 func (f SalesOrder) GetAll(ctx context.Context, page, limit, offset int) (*models.SalesOrderDtoWithPagination, error) {
 	ctx, cancel := context.WithTimeout(ctx, f.contextTimeout)
 	defer cancel()

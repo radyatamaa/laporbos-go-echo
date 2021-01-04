@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="caee27d6-2ff5-4a5c-9251-93104e9d73bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sales_order.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/sales_order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/delivery/http/sales_order_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/delivery/http/sales_order_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/repository/repo_sales_order.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/repository/repo_sales_order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_order/usecase/sales_order_usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/sales_order/usecase/sales_order_usecase.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +22,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.15.6" />
+  <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -81,18 +84,35 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-    <environment>
-      <map>
-        <entry key="GOPROXY" value="direct" />
-      </map>
-    </environment>
     <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#GOROOT" timestamp="1609735734216">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#GOROOT/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1609735734216" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1609736990731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1609736990731" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1609736990731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1609736990731" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1609736990731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1609736990731" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1609736990731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1609736990731" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
