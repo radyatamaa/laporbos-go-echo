@@ -11,7 +11,7 @@ import (
 
 func main() {
 	//dev
-	db, err := gorm.Open("mysql", "root:@(localhost)/laporbos_db?charset=utf8&parseTime=True&loc=Local")
+	db, err := gorm.Open("mysql", "admin:Standar123.@(database-1.ctbsvnsqpxtg.ap-southeast-1.rds.amazonaws.com)/laporbos_db?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		fmt.Println(err)
 	}

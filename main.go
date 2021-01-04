@@ -56,10 +56,10 @@ func main() {
 	//dbName := viper.GetString(`database.name`)
 	//dev db
 
-	dbHost := "localhost"
+	dbHost := "database-1.ctbsvnsqpxtg.ap-southeast-1.rds.amazonaws.com"
 	dbPort := "3306"
-	dbUser := "root"
-	dbPass := ""
+	dbUser := "admin"
+	dbPass := "Standar123."
 	dbName := "laporbos_db"
 
 	////dev IS
